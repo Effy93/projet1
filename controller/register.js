@@ -6,8 +6,21 @@ if (formRegister) {
     e.preventDefault();
 
     const email = document.getElementById("email").value;
+    const confirmEmail = document.getElementById("confirm_email").value;
     const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm_password").value;
 
+    // vérifie que les emails correspondent
+    if (email !== confirmEmail) {
+      errorRegister.textContent = "Les adresses email ne correspondent pas !";
+      return;
+    }
+    // vérifie que les mots de passe correspondent
+    if (password !== confirmPassword) {
+      errorRegister.textContent = "Les mots de passe ne correspondent pas !";
+      return;
+    } 
+   
     // récupère l'utilisateur existant
     const existingUser = JSON.parse(localStorage.getItem("user"));
 

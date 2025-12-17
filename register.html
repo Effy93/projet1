@@ -1,5 +1,4 @@
-<!-- Page d'inscription -->
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html lang="en">
  <head>
     <meta charset="UTF-8">
@@ -24,27 +23,27 @@
     </header>
     <main>
         <div class="content">
-                <h1>Inscription</h1>
-                <form id="registerForm">
-                    <label for="name">Nom:</label>
-                    <input type="text" id="name" name="name" placeholder="Votre nom">
+            <h1>Inscription</h1>
+            <form id="registerForm">
+                <label for="name">Nom:</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Votre email">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Votre email" required>
 
-                    <label for="confirm_email">Confirmation email:</label>
-                    <input type="email" id="confirm_email" name="confirm_email" placeholder="Confirmez votre email">
+                <label for="confirm_email">Confirmation email:</label>
+                <input type="email" id="confirm_email" name="confirm_email" placeholder="Confirmez votre email" required>
 
-                    <label for="password">Mot de passe:</label>
-                    <input type="password" id="password" name="password" placeholder="Votre mot de passe">
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
 
-                    <label for="confirm_password">Confirmation mot de passe:</label>
-                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmez votre mot de passe">
+                <label for="confirm_password">Confirmation mot de passe:</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmez votre mot de passe" required>
 
-                    <p id="error"></p>
+                <p id="error"></p>
 
-                    <button id="btnRegister" type="submit">S'inscrire</button>
-                </form>
+                <button id="btnRegister" type="submit">S'inscrire</button>
+            </form>
         </div>
     </main>
     <footer>
