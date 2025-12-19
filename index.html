@@ -1,42 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="controller/auth.js" defer></script>
-<!-- Pour version finale -->
-<!-- <script src="js/auth.prod.js"></script> -->
-    <title>Accueil</title>
-</head>
-<body>
-    <header class="header">
-        <nav class="nav-bar">
-            <a href="index.html" class="nav-logo">
-            <img src="assets/img/logo-home.png" alt="Accueil">
-            </a>
-            <div class="header-content">
-                <a href="login.html" id="nav-btn-login">Se connecter</a>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/home.css">
+        <script src="controller/auth.js" defer></script>
+        <script src="js/home.js" defer></script>
+        <title>Accueil | Celest IA</title>
+        <meta name="description" content="Découvrez Celest IA, une plateforme dédiée à l’intelligence artificielle, explorez nos agents IA et les fonctionnalités proposées.">
+    </head>
+    <body>
+
+        <header class="header">
+            <nav class="nav-bar">
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/img//logo/logo-home.png" alt="Accueil">
+                </a>
+                <div class="header-content">
+                    <a href="login.html" id="nav-btn-login">Se connecter</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main-container">
+            <header class="main-header">
+                <h1>Bienvenue sur la plateforme des Agents IA</h1>
+                <aside class="sidebar">
+                    <button class="agent-tab active" data-agent="0">Daïne</button>
+                    <button class="agent-tab" data-agent="1">Kaï</button>
+                    <button class="agent-tab" data-agent="2">Orion</button>
+                    <button class="agent-tab" data-agent="3">Aya</button>
+                </aside>
+            </header>
+
+            <section class="agent-info">
+                <div class="agent-card" id="agent-card">
+                    <img id="agent-img" src="assets/img/avatar/daine.svg" alt="Agent 1" class="agent-img">
+                    <h2 id="agent-name">Daïne</h2>
+                    <p id="agent-desc">IA spécialisée en analyse et optimisation des processus.</p>
+                    <a id="agent-link" href="#" class="btn">Acheter</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-logos">
+                <img src="assets/img/logo/logo-linkedin.png" alt="Logo Linkedin" class="footer-logo">
+                <img src="assets/img/logo/logo-github.svg" alt="Logo GitHub" class="footer-logo">
             </div>
-        </nav>
-    </header>
-    <main>
-        <div class="content">
-            <p>Ceci est la page d'accueil.</p>
-        </div>
-    </main>
-    <footer>
-        <div class="footer-logos">
-            <img src="assets/img/logo-linkedin.png" alt="Logo Linkedin" class="footer-logo">
-            <img src="assets/img/logo-github.svg" alt="Logo GitHub" class="footer-logo">
-        </div>
-        <div class="footer-links">
-            <a href="">Politique de confidentialité</a>
-            <a href="">Conditions d'utilisation</a>
-            <a href="">Mentions Légales</a>
-        </div>
-    </footer>
-</div>
-</body>
+            <div class="footer-links">
+                <a href="">Politique de confidentialité</a>
+                <a href="">Conditions d'utilisation</a>
+                <a href="">Mentions Légales</a>
+            </div>
+        </footer>
+    </body>
 </html>

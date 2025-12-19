@@ -1,42 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="controller/auth.js" defer></script>
-<!-- Pour version finale -->
-<!-- <script src="js/auth.prod.js"></script> -->
-    <script src="controller/profile.js" defer></script>
-    <title>Profile</title>
- </head>
- <body>
-    <header class="header">
-        <nav class="nav-bar">
-            <a href="index.html" class="nav-logo">
-            <img src="assets/img/logo-home.png" alt="Accueil">
-            </a>
-            <div class="header-content">
-                <img src="assets/img/logout.svg" alt="Se déconnecter" id="nav-btn-logout">
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="controller/auth.js" defer></script>
+    <!-- Pour version finale -->
+    <!-- <script src="js/auth.prod.js"></script> -->
+        <script src="controller/profile.js" defer></script>
+        <title> Profil | Celest IA</title>
+        <meta name="description" content="Accédez à votre profil Celest IA pour gérer vos informations personnelles et vos agents IA.">
+    </head>
+    
+    <body>
+        <header class="header">
+            <nav class="nav-bar">
+                <a href="index.html" class="nav-logo">
+                <img src="assets/img/logo/logo-home.png" alt="Accueil">
+                </a>
+                <div class="header-content">
+                    <img src="assets/img/logout.svg" alt="Se déconnecter" id="nav-btn-logout">
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <article class="content">
+                <h1 id="userName"> Bienvenue </h1>
+            </article>
+        </main>
+        
+        <footer>
+            <div class="footer-logos">
+                <img src="assets/img/logo/logo-linkedin.png" alt="Logo Linkedin" class="footer-logo">
+                <img src="assets/img/logo/logo-github.svg" alt="Logo GitHub" class="footer-logo">
             </div>
-        </nav>
-    </header>
-    <main>
-        <div class="content">
-            <h1 id="userName"> Bienvenue </h1>
-        </div>
-    </main>
-    <footer>
-        <div class="footer-logos">
-            <img src="assets/img/logo-linkedin.png" alt="Logo Linkedin" class="footer-logo">
-            <img src="assets/img/logo-github.svg" alt="Logo GitHub" class="footer-logo">
-        </div>
-        <div class="footer-links">
-            <a href="">Politique de confidentialité</a>
-            <a href="">Conditions d'utilisation</a>
-            <a href="">Mentions Légales</a>
-        </div>
-    </footer>
- </body>
+            <div class="footer-links">
+                <a href="">Politique de confidentialité</a>
+                <a href="">Conditions d'utilisation</a>
+                <a href="">Mentions Légales</a>
+            </div>
+        </footer>
+    </body>
 </html> 
