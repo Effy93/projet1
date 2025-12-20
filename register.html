@@ -5,10 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
-        <script src="controller/auth.js" defer></script>
-    <!-- Pour version finale -->
-    <!-- <script src="js/auth.prod.js"></script> -->
-        <script src="controller/register.js" defer></script>
+        <!-- auth / logique métier -->
+        <script type="module" src="model/user.js"></script>
+        <script type="module" src="controller/header.js"></script>
+        <script type="module" src="controller/register.js"></script>
+
         <title> Inscription | Celest IA</title>
         <meta name="description" content="Inscrivez-vous sur Celest IA pour créer votre compte et accéder à nos services d'agents IA.">
     </head>

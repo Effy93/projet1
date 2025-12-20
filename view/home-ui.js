@@ -1,37 +1,31 @@
 import { agents } from "../model/agents.js";
 import { auth } from "../model/user.js";
-import { renderAgent } from "../view/agent-renderer.js";
+import { renderAgent } from "./agent-renderer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const user = auth.getUser();
-  if (!user) return; // personne connectée, on peut rediriger si besoin
-
+  const user = auth.getUser() || { agents: [] };
   const buyBtn = document.getElementById("agent-link");
   const purchaseMessage = document.getElementById("purchase-message");
   const tabs = document.querySelectorAll(".agent-tab");
 
-  // Affiche l'agent selon l'index
   function showAgent(index) {
-    if (!tabs[index]) return;
     tabs.forEach(t => t.classList.remove("active"));
     tabs[index].classList.add("active");
     renderAgent(agents[index], user);
   }
 
-  // Ajout des événements clic sur les onglets
   tabs.forEach((tab, i) => tab.addEventListener("click", () => showAgent(i)));
 
-  // Gestion du clic sur le bouton Acheter
   if (buyBtn) {
     buyBtn.addEventListener("click", (e) => {
       e.preventDefault();
       const agentName = buyBtn.dataset.agent;
       if (!user.agents.includes(agentName)) {
         user.agents.push(agentName);
-        auth.saveUser(user); // sauvegarde définitive
+        auth.saveUser(user);  // sauvegarde définitive
         renderAgent(agents.find(a => a.name === agentName), user);
 
-        // Message UX friendly
+        // message UX friendly
         purchaseMessage.textContent = `Vous avez bien acheté l'agent ${agentName} ! 🎉`;
         purchaseMessage.style.color = "#4fc3f7";
         purchaseMessage.style.fontWeight = "bold";
@@ -39,6 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Affiche DAÏNE par défaut (index 0)
+  // Toujours afficher **Daïne par défaut**, peu importe ce qui est acheté
   showAgent(0);
 });

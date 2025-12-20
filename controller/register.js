@@ -1,7 +1,4 @@
-// Récupère et valide le formulaire
-// enregistre l’utilisateur via auth.register 
-// gestion des erreurs ou redirection.
-
+import { auth } from "../model/user.js";
 const formRegister = document.getElementById("registerForm");
 const errorRegister = document.getElementById("error");
 

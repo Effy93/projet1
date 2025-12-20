@@ -5,25 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
-        <script src="controller/auth.js" defer></script>
-    <!-- Pour version finale -->
-    <!-- <script src="js/auth.prod.js"></script> -->
-        <script src="controller/login.js" defer></script>
+        <!-- auth / logique métier -->
+        <script type="module" src="model/user.js"></script>
+        <script type="module" src="controller/header.js"></script>
+        <script type="module" src="controller/login.js"></script>
+
+
         <title> Connexion | Celest IA</title>
         <meta name="description" content="Connectez-vous à votre compte Celest IA pour accéder à votre espace personnel.">
     </head>
 
     <body>
-       <header class="header">
+        <header class="header">
             <nav class="nav-bar">
                 <a href="index.html" class="nav-logo">
-                    <img src="assets/img//logo/logo-home.png" alt="Accueil">
+                <img src="assets/img/logo/logo-home.png" alt="Accueil">
                 </a>
                 <div class="header-content">
                     <a href="login.html" id="nav-btn-login">Se connecter</a>
-                    <a href="profile.html" id="nav-btn-profile" style="display:none;">
-                        <img src="assets/img/logo/profile.svg" alt="Profil">
-                    </a>
                     <img src="assets/img/logo/logout.svg" alt="Se déconnecter" id="nav-btn-logout" style="display:none;">
                 </div>
             </nav>

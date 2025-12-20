@@ -1,32 +1,49 @@
-// profile.js : affiche le nom de l'utilisateur et gère le header sur profile.html
-document.addEventListener("DOMContentLoaded", () => {
-  const userNameElement = document.getElementById("userName");
-  const loginLink = document.getElementById("nav-btn-login");
-  const profileBtn = document.getElementById("nav-btn-profile");
-  const logoutBtn = document.getElementById("nav-btn-logout");
+import { agents } from "../model/agents.js";
+import { auth } from "../model/user.js";
+import { renderAgent } from "../view/agent-renderer.js";
 
-  // Redirection si pas connecté
-  if (!auth.isAuthenticated()) {
+document.addEventListener("DOMContentLoaded", () => {
+  const user = auth.getUser();
+  if (!user || !auth.isAuthenticated()) {
     window.location.href = "login.html";
     return;
   }
 
-  // Récupère l'utilisateur depuis localStorage
-  const user = auth.getUser();
-  if (user && user.name) {
-    userNameElement.textContent = `Bienvenue, ${user.name}!`;
-  }
+  const userNameEl = document.getElementById("userName");
+  const userEmailEl = document.getElementById("userEmail");
+  const sidebar = document.querySelector(".ia-container .sidebar");
+  const agentCardContainer = document.querySelector(".agent-info");
+  const logoutBtn = document.getElementById("nav-btn-logout");
 
-  // Sur profil : cacher login et profil
-  if (loginLink) loginLink.style.display = "none";
-  if (profileBtn) profileBtn.style.display = "none";
+  if (userNameEl) userNameEl.textContent = `Bienvenue, ${user.name}!`;
+  if (userEmailEl) userEmailEl.textContent = user.email;
 
-  // Logout visible et fonctionnel
   if (logoutBtn) {
     logoutBtn.style.display = "inline";
     logoutBtn.addEventListener("click", () => {
       auth.logout();
-      window.location.href = "index.html"; // retour accueil
+      window.location.href = "index.html";
     });
   }
+
+  if (!user.agents || user.agents.length === 0) {
+    agentCardContainer.innerHTML = "<p>Vous n'avez aucune IA pour le moment 😢</p>";
+    return;
+  }
+
+  // Création des onglets dynamiques
+  user.agents.forEach((agentName, index) => {
+    const agent = agents.find(a => a.name === agentName);
+    if (!agent) return;
+
+    const btn = document.createElement("button");
+    btn.className = "agent-tab";
+    btn.dataset.agent = index;
+    btn.textContent = agent.name;
+    sidebar.appendChild(btn);
+
+    btn.addEventListener("click", () => renderAgent(agent, user));
+  });
+
+  renderAgent(agents.find(a => a.name === user.agents[0]), user);
 });

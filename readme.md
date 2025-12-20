@@ -1,6 +1,6 @@
 # **README.md – CelestIA **
 
-```markdown
+
 # CelestIA 🌌
 
 [![HTML](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/fr/docs/Web/HTML) 
@@ -25,15 +25,15 @@ Fonctionnalités principales :
 
 ---
 
-## 🖼 Capture d’écran
+## 🖼 Maquette
 
-![Accueil](assets/img/mockup/CelestIA.png)  
-*Exemple de la page d’accueil*
+![Accueil](assets//mockup/CelestIA.png)  
+*Maquette complète avec Figma*
 
 ![Profil](assets/mockup/390-Accueil.png)  
-*Exemple de la page profil*
+*Exemple de la page d’accueil*
 
-
+## 🖼 Capture d'écran
 
 ---
 
@@ -175,7 +175,7 @@ git clone https://github.com/Effy-93/CelestIA.git
 
 ## Auteur
 
-**Eva Philippo** – Projet de formation Concepteur Développeu d'Application
+**Eva Philippo** – Projet de formation Concepteur Développeur d'Application
 
 
 

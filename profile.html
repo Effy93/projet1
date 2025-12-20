@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
-        <script src="controller/auth.js" defer></script>
-    <!-- Pour version finale -->
-    <!-- <script src="js/auth.prod.js"></script> -->
-        <script src="controller/home.js" defer></script>
-        <script src="controller/profile.js" defer></script>
+        <link rel="stylesheet" href="css/profile.css">
+        <script type="module" src="model/user.js"></script>
+        <script type="module" src="controller/header.js"></script>
+        <script type="module" src="controller/profile.js"></script>
+        
         <title> Profil | Celest IA</title>
         <meta name="description" content="Accédez à votre profil Celest IA pour gérer vos informations personnelles et vos agents IA.">
     </head>
@@ -27,10 +27,32 @@
             </nav>
         </header>
 
-        <main>
-            <article class="content">
-                <h1 id="userName"> Bienvenue </h1>
-            </article>
+        <main class="main-container">
+            <h1 id="userName">Bienvenue</h1>
+            <div class="profile-layout">
+
+                <!-- PROFIL À GAUCHE -->
+                <section class="profile-card">
+                <h2>Mes informations</h2>
+                <p> <span id="userEmail"></span></p>
+                </section>
+
+                <!-- IA À DROITE -->
+                <section class="ia-container">
+                    <div class="sidebar">
+                        <!-- tabs injectés en JS -->
+                    </div>
+                    <div class="agent-info">
+                        <div class="agent-card" id="agent-card">
+                        <img id="agent-img" class="agent-img" src="" alt="">
+                        <h3 id="agent-name"></h3>
+                        <p id="agent-desc"></p>
+                        <a id="agent-link" class="btn" href="#">Accéder</a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
         </main>
         
         <footer>
