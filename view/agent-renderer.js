@@ -16,15 +16,28 @@ export function renderAgent(agent, user) {
 
   buyBtn.dataset.agent = agent.name;
   buyBtn.style.backgroundColor = agent.color;
+  purchaseMessage.textContent = "";
 
-  if (user.agents.includes(agent.name)) {
+  // Pas connecté
+  if (!user) {
+    buyBtn.textContent = "Se connecter pour acheter";
+    buyBtn.disabled = false;
+    buyBtn.href = "login.html";
+    buyBtn.removeAttribute("data-agent"); // empêche l'achat
+    return;
+  }
+
+  // Connecté
+  buyBtn.href = "#";
+  buyBtn.dataset.agent = agent.name;
+
+  if  (user.agents.includes(agent.name)) {
     buyBtn.textContent = "Possédé ✔";
     buyBtn.disabled = true;
   } else {
-    buyBtn.textContent = "Acheter";
-    buyBtn.disabled = false;
+  buyBtn.textContent = "Acheter";
+  buyBtn.disabled = false;
   }
 
-  purchaseMessage.textContent = "";
 }
-// agent-renderer.js : fonction pour afficher les détails d'un agent IA dans l'UI
+// agent-renderer.js : fonction pour afficher les détails d'un agent IA dans l'interface utilisateur

@@ -2,6 +2,14 @@
 html, body {
   height: 100%;
   margin: 0;
+  overflow-x: hidden;
+}
+
+/* Box sizing fix */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -28,7 +36,7 @@ main {
   display: flex;
   align-items: center;
   z-index: 1000;
-  padding: 0 3vw; 
+  padding: 0 1.5vw; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -60,8 +68,8 @@ main {
 }
 .header-content {
   display: flex;
-  gap: 1.5vw;
-  margin-right: 4vw;
+  gap: 1rem;
+  margin-right: 1vw;
 }
 
 #nav-btn-login, #nav-btn-register {
@@ -144,7 +152,7 @@ input::placeholder {
   background-color: #D27DFB;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 4px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;

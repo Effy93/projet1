@@ -4,7 +4,7 @@ import { renderAgent } from "../view/agent-renderer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const user = auth.getUser();
-  if (!user) return; // personne connectée, on peut rediriger si besoin
+  renderAgent(agents[0], user); // Affiche Daïne par défaut
 
   const buyBtn = document.getElementById("agent-link");
   const purchaseMessage = document.getElementById("purchase-message");
@@ -39,6 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Affiche DAÏNE par défaut (index 0)
+  // Toujours afficher **Daïne par défaut**, peu importe ce qui est acheté
   showAgent(0);
 });
