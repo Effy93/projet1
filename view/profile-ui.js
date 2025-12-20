@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const agentCardContainer = document.querySelector(".agent-info");
   
   if (!user.agents || user.agents.length === 0) {
-    agentCardContainer.innerHTML = "<p>Vous n'avez aucune IA pour le moment </p>";
+    agentCardContainer.innerHTML = "<p> Vous n'avez aucune IA pour le moment </p>";
     return;
   }
 

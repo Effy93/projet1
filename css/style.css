@@ -52,6 +52,7 @@ main {
   height: 40px;
 }
 
+
 #nav-btn-profile, #nav-btn-profile img {
   padding: auto;
   margin: auto;
@@ -59,13 +60,15 @@ main {
   height: 30px;
   cursor: pointer;
 }
-#nav-btn-logout{
+
+#nav-btn-logout {
   padding: auto;
   margin: auto;
   width: 45px;
   height: 45px;
   cursor: pointer;
 }
+
 .header-content {
   display: flex;
   gap: 1rem;
@@ -78,6 +81,15 @@ main {
   cursor: pointer;
 
 }
+
+.nav-logo:hover,
+#nav-btn-logout:hover,
+#nav-btn-profile:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+
 
 /* Main content : form, input, button, message error  */
 .content {
@@ -141,6 +153,7 @@ input::placeholder {
 #goRegister:hover {
   color:  #BB5EDB;
   text-decoration: underline;
+  transition: color 0.3s;
 }
 
 
@@ -163,6 +176,7 @@ input::placeholder {
 
 #btnLogin:hover, #btnRegister:hover {
   background-color: #BB5EDB;
+  transition: color 0.3s;
 }
 
 #error {
@@ -210,4 +224,5 @@ footer {
 
 .footer-links a:hover {
   color: #0073b1;
+  transition: transform 0.2s ease;
 }

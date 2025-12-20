@@ -1,6 +1,6 @@
 import { auth } from "../model/user.js";
 
-  const formLogin = document.getElementById("loginForm");
+const formLogin = document.getElementById("loginForm");
 const errorLogin = document.getElementById("error");
 const goRegister = document.getElementById("goRegister");
 

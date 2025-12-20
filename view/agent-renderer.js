@@ -20,7 +20,7 @@ export function renderAgent(agent, user) {
 
   // Pas connecté
   if (!user) {
-    buyBtn.textContent = "Se connecter pour acheter";
+    buyBtn.textContent = "Se connecter pour découvrir l’IA";
     buyBtn.disabled = false;
     buyBtn.href = "login.html";
     buyBtn.removeAttribute("data-agent"); // empêche l'achat
@@ -32,7 +32,8 @@ export function renderAgent(agent, user) {
   buyBtn.dataset.agent = agent.name;
 
   if  (user.agents.includes(agent.name)) {
-    buyBtn.textContent = "Possédé ✔";
+    buyBtn.textContent = "Possédé ";
+    buyBtn.appendChild(document.createTextNode("✔"));
     buyBtn.disabled = true;
   } else {
   buyBtn.textContent = "Acheter";

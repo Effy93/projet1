@@ -24,6 +24,17 @@ h1 {
     width: 100%;
 }
 
+.sidebar button:hover {
+  background-color: #6a5acd;
+  transition: color 0.3s;
+}
+
+.sidebar button.active {
+  background-color: #6a5acd;
+  border-color: #6a5acd;
+  color: white;
+}
+
 /* Agent tab */
 .agent-tab {
     padding: 0.75rem 1rem;

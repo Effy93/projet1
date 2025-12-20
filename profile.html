@@ -6,9 +6,14 @@
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/profile.css">
+
+        <!-- module -->
         <script type="module" src="model/user.js"></script>
+
+        <!-- controller -->
         <script type="module" src="controller/header.js"></script>
         <script type="module" src="controller/profile.js"></script>
+        <script type="module" src="controller/profile-edit.js"></script>
         
         <title> Profil | Celest IA</title>
         <meta name="description" content="Accédez à votre profil Celest IA pour gérer vos informations personnelles et vos agents IA.">
@@ -22,7 +27,7 @@
                 </a>
                 <div class="header-content">
                     <a href="login.html" id="nav-btn-login">Se connecter</a>
-                    <img src="assets/img/logo/logout.svg" alt="Se déconnecter" id="nav-btn-logout" style="display:none;">
+                    <img src="assets/img/icons/logout.svg" alt="Se déconnecter" id="nav-btn-logout" style="display:none;">
                 </div>
             </nav>
         </header>
@@ -31,16 +36,30 @@
             <h1 id="userName">Bienvenue</h1>
             <div class="profile-layout">
 
-                <!-- PROFIL À GAUCHE -->
                 <section class="profile-card">
-                <h2>Mes informations</h2>
-                <p> <span id="userEmail"></span></p>
+                <div class="profile-card-header">
+                    <h2>Mes informations</h2>
+
+                    <img src="assets/img/icons/edit.svg" alt="Modifier le profil" id="editProfileBtn" class="edit-profile-btn"/>
+                </div>
+
+                <p><span id="userEmail"></span></p>
+
+                <!-- formulaire edition profil -->
+                <form id="editProfileForm" style="display:none;">
+                    <label> Nom: <input type="text" id="editName" required /> </label>
+
+                    <!--  email à retirer ou readonly plus tard -->
+                    <label> Email: <input type="email" id="editEmail" readonly /> </label>
+
+                    <button type="submit" class="btn-primary">Enregistrer</button>
+                </form>
                 </section>
 
-                <!-- IA À DROITE -->
                 <section class="ia-container">
+                    <h2>Mes agents IA</h2>
                     <div class="sidebar">
-                        <!-- tabs injectés en JS -->
+                    
                     </div>
                     <div class="agent-info">
                         <div class="agent-card" id="agent-card">
