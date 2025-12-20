@@ -90,5 +90,10 @@ h1 {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.2s;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
 }

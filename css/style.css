@@ -1,4 +1,7 @@
-/* Flexbox */
+/************************/
+/* INITIALISE : Flexbox */
+/************************/
+
 html, body {
   height: 100%;
   margin: 0;
@@ -22,7 +25,10 @@ main {
   padding-top: 80px;
 }
 
+/************************/
 /* Floating nav bar  */
+/************************/
+
 .header {
   position: fixed;
   top: 0;
@@ -40,6 +46,12 @@ main {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.header-content {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1vw;
+}
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -51,7 +63,6 @@ main {
   width: 40px;
   height: 40px;
 }
-
 
 #nav-btn-profile, #nav-btn-profile img {
   padding: auto;
@@ -69,29 +80,23 @@ main {
   cursor: pointer;
 }
 
-.header-content {
-  display: flex;
-  gap: 1rem;
-  margin-right: 1vw;
-}
-
 #nav-btn-login, #nav-btn-register {
   padding: 0.5vw 1vw;
   text-decoration: none;
   cursor: pointer;
-
 }
 
 .nav-logo:hover,
 #nav-btn-logout:hover,
 #nav-btn-profile:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
   transition: transform 0.2s ease;
 }
 
-
-
+/*******************************************************/
 /* Main content : form, input, button, message error  */
+/*****************************************************/
+
 .content {
   display: flex;
   flex-direction: column;
@@ -105,7 +110,7 @@ form {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  max-width: 15rem;
+  max-width: 18rem;
   margin : 20px;
   padding : 20px;
   background-color: #D9D9D9;
@@ -132,22 +137,58 @@ input::placeholder {
   color: #fffdfd;
 }
 
-.formItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 14px;
+#btnLogin, #btnRegister {
+  background-color: #D27DFB;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin: 4px 2px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
 }
 
-#signIn, #goRegister{
-  margin: 10px 1px;
+#btnLogin:hover, #btnRegister:hover {
+  background-color: #BB5EDB;
+  transition: color 0.3s;
+}
 
+
+#error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+/***********************************************************************/
+/* FormItem : signIn + goRegister = lien pas de compte, inscrivez vous */
+/***********************************************************************/
+
+.formItem {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 10px;
+  margin: 10px auto;
+}
+
+#signIn {
+  display: flex;
+  flex-wrap: nowrap;      
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  white-space: nowrap;
 }
 
 #goRegister {
   color: #6a5acd;
-  cursor: pointer;
   font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 #goRegister:hover {
@@ -156,37 +197,10 @@ input::placeholder {
   transition: color 0.3s;
 }
 
-
-#btnLogin, #btnRegister {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60%;
-  background-color: #D27DFB;
-  color: white;
-  border: none;
-  padding: 8px 4px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-#btnLogin:hover, #btnRegister:hover {
-  background-color: #BB5EDB;
-  transition: color 0.3s;
-}
-
-#error {
-  color: red;
-  font-weight: bold;
-  text-align: center;
-}
-
-
+/**********/
 /* footer */
+/**********/
+
 footer {
   background-color: #f5f5f5;
   padding: 20px;
@@ -226,3 +240,79 @@ footer {
   color: #0073b1;
   transition: transform 0.2s ease;
 }
+
+
+/************************/
+/* LOGO CONNEXION */
+/************************/
+
+.user-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background: #1a1a1a;
+  cursor: pointer;
+
+  outline: 1.5px solid transparent;
+  outline-offset: 2px;
+  background-image: linear-gradient(#1a1a1a, #1a1a1a),
+                    linear-gradient(45deg, #8a2be2, #da70d6, #2e8eff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease;
+}
+
+.user-profile {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Liseré dégradé */
+.user-profile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* ⬅️ ÉPAISSEUR DU LISERÉ */
+  border-radius: 50%;
+  background: linear-gradient(45deg, #8a2be2, #da70d6, #2e8eff);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+/* Intérieur */
+.user-profile-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-profile-inner svg {
+  width: 18px; /* ⬅️ taille maîtrisée */
+  height: 18px;
+  fill: #fff;
+}
+
+.user-profile:hover {
+  transform: scale(1.15);
+  transition: transform 0.2s ease;
+}
+
+

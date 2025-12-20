@@ -22,22 +22,33 @@ document.addEventListener("DOMContentLoaded", () => {
   tabs.forEach((tab, i) => tab.addEventListener("click", () => showAgent(i)));
 
   // Gestion du clic sur le bouton Acheter
-  if (buyBtn) {
-    buyBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const agentName = buyBtn.dataset.agent;
-      if (!user.agents.includes(agentName)) {
-        user.agents.push(agentName);
-        auth.saveUser(user); // sauvegarde définitive
-        renderAgent(agents.find(a => a.name === agentName), user);
+buyBtn.addEventListener("click", (e) => {
+  e.preventDefault();
 
-        // Message UX friendly
-        purchaseMessage.textContent = `Vous avez bien acheté l'agent ${agentName} ! 🎉`;
-        purchaseMessage.style.color = "#4fc3f7";
-        purchaseMessage.style.fontWeight = "bold";
-      }
-    });
+  // PAS CONNECTÉ
+  if (!user) {
+    window.location.href = "login.html";
+    return;
   }
+
+  const agentName = buyBtn.dataset.agent;
+
+  if (!user.agents.includes(agentName)) {
+    user.agents.push(agentName);
+    auth.saveUser(user);
+
+    renderAgent(
+      agents.find(a => a.name === agentName),
+      user
+    );
+
+    purchaseMessage.textContent =
+      `Vous avez bien acheté l'agent ${agentName} !`;
+    purchaseMessage.style.color = "#4fc3f7";
+    purchaseMessage.style.fontWeight = "bold";
+  }
+});
+
 
   // Toujours afficher **Daïne par défaut**, peu importe ce qui est acheté
   showAgent(0);

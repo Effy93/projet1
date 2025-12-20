@@ -73,34 +73,45 @@ Fonctionnalités principales :
 ## 🗂 Structure des fichiers
 
 ```
-
 CelestIA/
 │
-├─ index.html
-├─ register.html
-├─ login.html
-├─ profile.html
+├── index.html
+├── login.html
+├── register.html
+├── profile.html
 │
-├─ css/
-│   ├─ reset.css
-│   └─ style.css
+├── assets/
+│   ├── img/
+│   │   ├── logo/
+│   │   ├── avatar/
+│   │   └── icons/
 │
-├─ assets/
-│   ├─ img/
-│   │   ├─ logo-home.png
-│   │   ├─ logout.svg
-│   │   └─ profile.svg
+│	├── mockup/
+│		│── maquette 
+│		
+├── css/
+│   ├── reset.css
+│   ├── style.css
+│   ├── home.css
 │
-├─ controller/
-│   ├─ auth.js
-│   ├─ home.js
-│   ├─ login.js
-│   ├─ register.js
-│   └─ profile.js
+├── controller/
+│   ├── header.js
+│   ├── home.js
+│   ├── login.js
+│   ├── register.js
 │
-└─ README.md
+├── model/
+│   ├── user.js
+│   └── agents.js
+│
+├── view/
+│   └── agent-renderer.js
+	└── home-ui.js
+	└── profile-ui.js
+│
+└── README.md
 
-````
+```
 
 ---
 
