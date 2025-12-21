@@ -1,5 +1,5 @@
 import { auth } from "../model/user.js";
-import { setupLogout } from "./logout-handler.js";
+import { setupLogout } from "./logout.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
