@@ -60,8 +60,8 @@ main {
 }
 
 .nav-logo img {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
 }
 
 #nav-btn-profile, #nav-btn-profile img {
@@ -75,8 +75,8 @@ main {
 #nav-btn-logout {
   padding: auto;
   margin: auto;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   cursor: pointer;
 }
 
@@ -247,8 +247,8 @@ footer {
 /************************/
 
 .user-profile {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem; /*taille*/
+  height: 2.5rem;
   border-radius: 50%;
 
   background: #1a1a1a;
@@ -266,12 +266,9 @@ footer {
   justify-content: center;
 
   transition: transform 0.2s ease;
-}
 
-.user-profile {
   position: relative;
-  width: 40px;
-  height: 40px;
+
   border-radius: 50%;
   cursor: pointer;
 }
@@ -281,7 +278,7 @@ footer {
   content: "";
   position: absolute;
   inset: 0;
-  padding: 2px; /* ⬅️ ÉPAISSEUR DU LISERÉ */
+  padding: 2px; /* ÉPAISSEUR DU LISERÉ */
   border-radius: 50%;
   background: linear-gradient(45deg, #8a2be2, #da70d6, #2e8eff);
   -webkit-mask:
@@ -302,11 +299,12 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .user-profile-inner svg {
-  width: 18px; /* ⬅️ taille maîtrisée */
-  height: 18px;
+  width: 4w; /* taille maîtrisée */
+  height: 4vw;
   fill: #fff;
 }
 
