@@ -1,4 +1,6 @@
 import { auth } from "../model/user.js";
+import { setupLogout } from "./logout-handler.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   let loginBtn = document.getElementById("nav-btn-login");
@@ -41,12 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Logout
   if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      auth.logout();
-      window.location.href = "index.html";
-    });
+    logoutBtn.style.display = "inline";
+    setupLogout(logoutBtn);
   }
 
   // Scale hover pour les 3 boutons (login/profile/logout)

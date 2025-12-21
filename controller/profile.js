@@ -1,6 +1,7 @@
 import { agents } from "../model/agents.js";
 import { auth } from "../model/user.js";
 import { renderAgent } from "../view/agent-renderer.js";
+import { setupLogout } from "./logout-handler.js";
 
 // Attend que le DOM soit chargé et redirige vers la page de connexion si l'utilisateur n'est pas authentifié
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,10 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (logoutBtn) {
     logoutBtn.style.display = "inline";
-    logoutBtn.addEventListener("click", () => {
-      auth.logout();
-      window.location.href = "index.html";
-    });
+    setupLogout(logoutBtn);
   }
 
   if (!user.agents || user.agents.length === 0) {

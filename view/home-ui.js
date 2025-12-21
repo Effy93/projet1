@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         renderAgent(agents.find(a => a.name === agentName), user);
 
         // message UX friendly
-        purchaseMessage.textContent = `Vous avez bien acheté l'agent ${agentName} ! 🎉`;
+        purchaseMessage.textContent = `Vous avez bien acheté l'agent ${agentName} !`;
         purchaseMessage.style.color = "#4fc3f7";
         purchaseMessage.style.fontWeight = "bold";
       }
