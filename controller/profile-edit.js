@@ -24,10 +24,28 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    user.name = nameInput.value.trim();
-    user.email = emailInput.value.trim();
+    const newName = nameInput.value.trim();
+    const newEmail = emailInput.value.trim();
 
-    auth.saveUser(user);
+    // Récupérer tous les utilisateurs
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Vérifier si le nouvel email est déjà utilisé par un autre
+    const emailExistant = users.find(u => u.email === newEmail && u.email !== user.email);
+    if (emailExistant) {
+      return alert("Cet email est déjà utilisé !");
+    }
+
+    // Mettre à jour l’utilisateur
+    user.name = newName;
+    user.email = newEmail;
+
+    const index = users.findIndex(u => u.email === user.email || u === user);
+    users[index] = user;
+
+    // Sauvegarder dans localStorage
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("loggedEmail", newEmail); // si l'email change
 
     alert("Profil mis à jour ✅");
     window.location.reload();
