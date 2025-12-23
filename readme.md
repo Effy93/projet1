@@ -114,6 +114,7 @@ CelestIA/
 ├── view/
 │   ├── agent-renderer.js
 │   └── profile-ui.js
+│   └── show-message.js
 │
 └── README.md
 ```
