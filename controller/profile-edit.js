@@ -1,4 +1,5 @@
 import { auth } from "../model/user.js";
+import { showMessage} from "../view/ui.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const user = auth.getUser();
@@ -7,39 +8,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const editBtn = document.getElementById("editProfileBtn");
   const form = document.getElementById("editProfileForm");
   const nameInput = document.getElementById("editName");
+  const msgEdit = document.getElementById("edit-message");
 
-  if (!editBtn || !form || !nameInput) return;
+  if (!editBtn || !form || !nameInput || !msgEdit) return;
 
   // Pré-remplir le formulaire
   nameInput.value = user.name;
 
   // Afficher / cacher le formulaire
   editBtn.addEventListener("click", () => {
-    form.style.display =
-      form.style.display === "none" ? "block" : "none";
+    form.style.display = form.style.display === "none" ? "block" : "none";
   });
 
   // Soumission du formulaire
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+ form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    const newName = nameInput.value.trim();
-    if (!newName) return;
+  const newName = nameInput.value.trim();
+  if (!newName) return showMessage(msgEdit, "Le nom ne peut pas être vide", "error");
 
-    // Récupérer tous les utilisateurs
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+  // Mettre à jour le nom
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const index = users.findIndex(u => u.email === user.email);
 
-    // Mettre à jour l’utilisateur (identifié par email)
-    const index = users.findIndex(u => u.email === user.email);
-    if (index === -1) return;
+  users[index].name = newName;
+  user.name = newName;
 
-    users[index].name = newName;
-    user.name = newName;
+  localStorage.setItem("users", JSON.stringify(users));
+  showMessage(msgEdit, "Profil mis à jour ", "success");
 
-    // Sauvegarde
-    localStorage.setItem("users", JSON.stringify(users));
-
-    alert("Profil mis à jour ✅");
+  setTimeout(() => {
     window.location.reload();
-  });
+  }, 1200);
+});
+
 });
