@@ -6,14 +6,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileBtn = document.getElementById("nav-btn-profile");
   const logoutBtn = document.getElementById("nav-btn-logout");
 
-  // Navigation login
-  if (loginBtn) {
-    loginBtn.addEventListener("click", () => {
-      window.location.href = "login.html";
-    });
+  // Affichage selon connexion
+  if (auth.isAuthenticated()) {
+    if (loginBtn) loginBtn.style.display = "none";
+    if (profileBtn) profileBtn.style.display = "inline";
+    if (logoutBtn) {
+      logoutBtn.style.display = "inline";
+      setupLogout(logoutBtn);
+    }
+  } else {
+    if (loginBtn) loginBtn.style.display = "inline";
+    if (profileBtn) profileBtn.style.display = "none";
+    if (logoutBtn) logoutBtn.style.display = "none";
   }
 
-  // Remplace le <a> login par le composant SVG stylé
+  // Remplace le <a> login par le composant SVG stylisé
   if (loginBtn) {
     loginBtn.outerHTML = `
       <div id="nav-btn-login" aria-label="User Login Button" tabindex="0" role="button" class="user-profile">
@@ -30,18 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     loginBtn = document.getElementById("nav-btn-login");
   }
 
-  // Affichage selon connexion
-  if (auth.isAuthenticated()) {
-    if (loginBtn) loginBtn.style.display = "none";
-    if (profileBtn) profileBtn.style.display = "inline";
-    if (logoutBtn) {
-      logoutBtn.style.display = "inline";
-      setupLogout(logoutBtn);
-    }
-  } else {
-    if (loginBtn) loginBtn.style.display = "inline";
-    if (profileBtn) profileBtn.style.display = "none";
-    if (logoutBtn) logoutBtn.style.display = "none";
+  // Navigation login
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      window.location.href = "login.html";
+    });
   }
-
 });
