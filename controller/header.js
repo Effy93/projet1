@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileBtn = document.getElementById("nav-btn-profile");
   const logoutBtn = document.getElementById("nav-btn-logout");
 
+  // Navigation login
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      window.location.href = "login.html";
+    });
+  }
+
   // Remplace le <a> login par le composant SVG stylé
   if (loginBtn) {
     loginBtn.outerHTML = `
@@ -35,13 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (loginBtn) loginBtn.style.display = "inline";
     if (profileBtn) profileBtn.style.display = "none";
     if (logoutBtn) logoutBtn.style.display = "none";
-  }
-
-  // Navigation login
-  if (loginBtn) {
-    loginBtn.addEventListener("click", () => {
-      window.location.href = "login.html";
-    });
   }
 
 });

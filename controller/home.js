@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Message UX friendly
         if (purchaseMessage) {
           purchaseMessage.textContent = `Vous avez bien acheté l'agent ${agentName} !`;
-          purchaseMessage.style.color = "#4fc3f7";
+          purchaseMessage.style.color = agent.color;
           purchaseMessage.style.fontWeight = "bold";
         }
       }

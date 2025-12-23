@@ -113,7 +113,6 @@ CelestIA/
 │
 ├── view/
 │   ├── agent-renderer.js
-│   ├── home-ui.js
 │   └── profile-ui.js
 │
 └── README.md
