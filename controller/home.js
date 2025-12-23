@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Gestion des onglets
   tabs.forEach((tab, i) => tab.addEventListener("click", () => showAgent(i)));
 
-  // Gestion du clic sur le bouton Acheter
+  // Logique d'achat
   if (buyBtn) {
     buyBtn.addEventListener("click", (e) => {
       e.preventDefault();

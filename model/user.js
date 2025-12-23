@@ -27,7 +27,7 @@ export const auth = {
     return data;
   },
 
-  /** Inscription */
+  /** Inscription // devrait être dans controller register*/
   async register(name, email, password) {
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -47,7 +47,7 @@ export const auth = {
     return { success: true };
   },
 
-  /** Connexion */
+  /** Connexion  // devrait être dans controller login*/
   async login(email, password) {
     email = email.trim();
     password = password.trim();
@@ -63,7 +63,7 @@ export const auth = {
     if (hashTest !== user.passwordHash) {
       return { success: false, message: "Email ou mot de passe incorrect" };
     }
-
+    //garde en mémoire l'utilisateur connecté
     localStorage.setItem("loggedEmail", email);
     return { success: true };
   },
